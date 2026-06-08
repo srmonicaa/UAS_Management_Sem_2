@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulasi Ujian Interaktif</title>
+  <meta name="description" content="Simulasi ujian interaktif berbasis web dan mobile dengan fitur acak soal, koreksi langsung, dan highlight jawaban." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand">
+        <span class="brand-mark">✓</span>
+        <span>Simulasi Ujian</span>
+      </div>
+      <button id="themeToggle" class="ghost-btn" type="button" aria-label="Ganti tema">Mode Gelap</button>
+    </nav>
+    <section class="hero-grid">
+      <div>
+        <p class="eyebrow">Latihan cepat • responsif • siap GitHub Pages</p>
+        <h1>Latihan ujian langsung tahu benar atau salah.</h1>
+        <p class="hero-copy">Pilih mata kuliah, tentukan jumlah soal, aktifkan acak soal, lalu jawab. Setelah pilihan diklik, sistem langsung menampilkan hasil dan skor berjalan.</p>
+      </div>
+      <div class="hero-card">
+        <div class="stat"><strong id="totalQuestions">0</strong><span>Total soal</span></div>
+        <div class="stat"><strong id="totalSubjects">0</strong><span>Mata kuliah</span></div>
+        <div class="stat"><strong>Mobile</strong><span>Friendly</span></div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="setup" class="panel setup-panel">
+      <div class="section-title">
+        <p class="eyebrow">Mulai latihan</p>
+        <h2>Atur simulasi</h2>
+      </div>
+
+      <div class="form-grid">
+        <label class="field">
+          <span>Mata kuliah</span>
+          <select id="subjectSelect"></select>
+        </label>
+        <label class="field">
+          <span>Jumlah soal</span>
+          <select id="countSelect"></select>
+        </label>
+        <label class="toggle-card">
+          <input id="shuffleToggle" type="checkbox" checked />
+          <span>
+            <strong>Acak soal</strong>
+            <small>Urutan soal dibuat berbeda setiap mulai.</small>
+          </span>
+        </label>
+        <label class="toggle-card">
+          <input id="instantToggle" type="checkbox" checked />
+          <span>
+            <strong>Koreksi langsung</strong>
+            <small>Benar/salah muncul setelah opsi diklik.</small>
+          </span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="startBtn" class="primary-btn" type="button">Mulai Simulasi</button>
+        <button id="reviewBtn" class="secondary-btn" type="button">Lihat Bank Soal</button>
+      </div>
+    </section>
+
+    <section class="subjects panel">
+      <div class="section-title compact">
+        <p class="eyebrow">Daftar bank soal</p>
+        <h2>Mata kuliah tersedia</h2>
+      </div>
+      <div id="subjectCards" class="subject-cards"></div>
+    </section>
+
+    <section id="quiz" class="quiz hidden" aria-live="polite">
+      <div class="quiz-top">
+        <button id="backBtn" class="ghost-btn" type="button">← Kembali</button>
+        <div class="score-pill"><span>Skor</span><strong id="scoreText">0/0</strong></div>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <article class="question-card">
+        <div class="question-meta">
+          <span id="questionCounter">Soal 1 dari 10</span>
+          <span id="sourceBadge">Sumber</span>
+        </div>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <div class="quiz-actions">
+          <button id="hintBtn" class="secondary-btn" type="button">Lihat highlight kuning</button>
+          <button id="prevBtn" class="ghost-btn" type="button">Sebelumnya</button>
+          <button id="nextBtn" class="primary-btn" type="button">Berikutnya</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="review" class="panel review hidden">
+      <div class="review-head">
+        <div>
+          <p class="eyebrow">Pratinjau</p>
+          <h2>Bank soal</h2>
+        </div>
+        <button id="closeReviewBtn" class="ghost-btn" type="button">Tutup</button>
+      </div>
+      <label class="field search-field">
+        <span>Cari soal</span>
+        <input id="searchInput" type="search" placeholder="Ketik kata kunci soal atau mata kuliah..." />
+      </label>
+      <div id="reviewList" class="review-list"></div>
+    </section>
+
+    <dialog id="resultDialog" class="result-dialog">
+      <div class="dialog-body">
+        <p class="eyebrow">Hasil simulasi</p>
+        <h2 id="resultTitle">Selesai</h2>
+        <p id="resultSummary"></p>
+        <div class="actions dialog-actions">
+          <button id="restartBtn" class="primary-btn" type="button">Ulangi</button>
+          <button id="closeDialogBtn" class="secondary-btn" type="button">Tutup</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer>
+    <p>Dibuat untuk latihan mandiri. Kunci jawaban mengikuti highlight kuning atau teks “Jawaban” pada PDF sumber.</p>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

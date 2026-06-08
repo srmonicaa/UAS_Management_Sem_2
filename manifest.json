@@ -1,0 +1,42 @@
+{
+  "total_subjects": 6,
+  "total_questions": 700,
+  "subjects": [
+    {
+      "id": "perekonomian-indonesia",
+      "title": "Perekonomian Indonesia",
+      "count": 120,
+      "without_A_D_answer": 0
+    },
+    {
+      "id": "pengantar-ekonomi-mikro",
+      "title": "Pengantar Ekonomi Mikro",
+      "count": 120,
+      "without_A_D_answer": 0
+    },
+    {
+      "id": "pengantar-akuntansi",
+      "title": "Pengantar Akuntansi",
+      "count": 135,
+      "without_A_D_answer": 0
+    },
+    {
+      "id": "mkdi4202-belajar-di-era-digital",
+      "title": "Belajar di Era Digital",
+      "count": 100,
+      "without_A_D_answer": 2
+    },
+    {
+      "id": "econ4103-matematika-ekonomi",
+      "title": "Matematika Ekonomi",
+      "count": 90,
+      "without_A_D_answer": 13
+    },
+    {
+      "id": "mkwn4110-pancasila",
+      "title": "Pancasila",
+      "count": 135,
+      "without_A_D_answer": 0
+    }
+  ]
+}
